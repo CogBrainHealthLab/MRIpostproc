@@ -1,0 +1,22 @@
+Package: MRIpostproc
+Type: Package
+Title: Post-processing of MRI data
+Version: 1.0.0
+Authors@R: c(
+    person("Junhong", "Yu", , "junhong.yu@ntu.edu.sg", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-2563-9658"))
+  )
+Maintainer: Junhong Yu <junhong.yu@ntu.edu.sg>
+Description: A collection of in-house R functions for post-processing preprocessed MRI data
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: 
+    R (>= 4.1.0)
+Imports:
+    ciftiTools,
+    psych,
+    rjson,
+    stringr
