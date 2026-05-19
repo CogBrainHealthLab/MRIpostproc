@@ -6,7 +6,7 @@ Cognitive and Brain Health Laboratory 2026-19-5
 
 ```         
 install.packages("pak") 
-pak::pak("CogBrainHealthLab/FCtools")
+pak::pak("CogBrainHealthLab/MRIpostproc")
 ```
 
 ### Overview
