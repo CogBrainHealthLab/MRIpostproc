@@ -2,6 +2,13 @@
 
 Cognitive and Brain Health Laboratory 2026-19-5
 
+### Installation
+
+```         
+install.packages("pak") 
+pak::pak("CogBrainHealthLab/FCtools")
+```
+
 ### Overview
 
 This package contains tools:
