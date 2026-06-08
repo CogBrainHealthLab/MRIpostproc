@@ -39,6 +39,13 @@ CIFTItoFC=function(path="./",wb_path="/home/junhong.yu/workbench/bin_rh_linux64"
   
   ##atlas checks
   if(is.na(match(atlas,(1:10)*100)))  {stop("\nAtlas should be a multiple of 100 from 100 to 1000")}
+
+  #check if data dir exists, make dir if it does not
+  if (!dir.exists(paste0(system.file(package='MRIpostproc'),"/data/"))) 
+  {
+  dir.create(paste0(system.file(package='MRIpostproc'),"/data/"), recursive = TRUE)
+  } 
+  
   #download atlas template if it is missing
   if(!file.exists(paste(system.file(package='MRIpostproc'),"/data/Schaefer2018_",atlas,"Parcels_7Networks_order.dlabel.nii",sep="")))
   {
