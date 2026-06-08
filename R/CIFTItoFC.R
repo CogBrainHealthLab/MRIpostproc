@@ -29,7 +29,7 @@
 
 ########################################################################################################
 ########################################################################################################
-CIFTItoFC=function(path="./",wb_path="/home/junhong.yu/workbench/bin_rh_linux64", dtseries="_space-fsLR_den-91k_desc-denoised_bold.dtseries.nii", timeseries=F, concat_subj=TRUE, atlas=200, round,filename="FC.rds")
+CIFTItoFC=function(path="./",wb_path="/home/junhong.yu/workbench/bin_rh_linux64", dtseries="_space-fsLR_den-91k_desc-denoised_bold.dtseries.nii", timeseries=F, concat_subj=TRUE, atlas=200, round.dat=3,filename="FC.rds")
 {
   filelist=list.files(path=path,pattern=dtseries,recursive = T)
   sublist=unique(gsub(pattern ="/ses-.*/func",replacement = "",dirname(filelist)))
