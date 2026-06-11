@@ -32,7 +32,7 @@ headmotion.fmriprep=function(path = Sys.glob("sub-*"), filename="rmsd.csv", thre
   files.del=FD.all[which(FD.all$RMSD>threshold),1]
   del.sh=paste0("rm -rf ",gsub("_desc-confounds_timeseries.tsv","*",files.del))
 
-  if(length(files.del)>1)
+  if(length(files.del)>0)
   {
     cat(paste0(length(files.del), " fMRI runs had mean RMSD values >", threshold)) 
     write.table(del.sh,row.names=F, col.names=F,quote=F, file="del.sh")
