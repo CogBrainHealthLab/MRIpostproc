@@ -10,7 +10,7 @@ asl.QC(filename = "ASLPREP_QC.csv")
 \item{filename}{Filename of the .csv file. Set to \code{ASLPREP_QC.csv} by default}
 }
 \value{
-outputs a .csv file containing the aslprep QC data
+outputs a .csv file containing the aslprep QC data and the bash script \code{del.sh} if there are scans that fail the QC
 }
 \description{
 collating all aslprep QC data into a single .csv file

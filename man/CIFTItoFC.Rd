@@ -11,7 +11,7 @@ CIFTItoFC(
   timeseries = F,
   concat_subj = TRUE,
   atlas = 200,
-  round,
+  round.dat = 3,
   filename = "FC.rds"
 )
 }
@@ -28,9 +28,9 @@ CIFTItoFC(
 
 \item{atlas}{The version (number of parcels) of the Schaefer atlas; it has to be in multiples of 100, from 100 to 1000. set to \code{200} by default. The specified atlas template will be automatically downloaded from here if it does not exist in the current directory.}
 
-\item{filename}{Filename of the concatenated FC vector file. Set to \code{FC.rds} by default}
-
 \item{round.dat}{Number of decimal places to round the data to. Fewer decimal places require less disk space}
+
+\item{filename}{Filename of the concatenated FC vector file. Set to \code{FC.rds} by default}
 }
 \value{
 outputs N (number of subjects) x E (number of unique) matrices as a .rds file
