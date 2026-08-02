@@ -18,6 +18,14 @@
 
 asl.QC=function(filename="ASLPREP_QC.csv")
 {
+  #modified rbind function 
+  rbind_fill <- function(df1, df2) {
+  all_cols <- union(names(df1), names(df2))
+  for (col in setdiff(all_cols, names(df1))) df1[[col]] <- NA
+  for (col in setdiff(all_cols, names(df2))) df2[[col]] <- NA
+  rbind(df1, df2[, names(df1)])  # reorder df2 to match df1
+  }
+
   #compile QC data from all subjects and sessions
   filelist=list.files(path = Sys.glob("sub-*"),pattern = "_desc-qualitycontrol_cbf.tsv", recursive = T,full.names = T)
   subses=basename(gsub(pattern = "_desc-qualitycontrol_cbf.tsv","",filelist))  
@@ -37,7 +45,7 @@ asl.QC=function(filename="ASLPREP_QC.csv")
       {
         dat.temp$acq=NULL
       }  
-      dat=rbind(dat,dat.temp)
+      dat=rbind_fill(dat,dat.temp)
       remove(dat.temp)
     }
   }
