@@ -51,6 +51,7 @@ asl.QC=function(filename="ASLPREP_QC.csv")
   }
   
   #identify scans that fail QC
+  dat[dat=="n/a"]=NA
   idx=which(dat$ratio_gm_wm_cbf<1 | dat$mean_fd>1)
   if(length(idx)>0)
   {
@@ -62,7 +63,8 @@ asl.QC=function(filename="ASLPREP_QC.csv")
         del.sh=paste0("rm -rf sub-",dat$sub[idx],"/ses-",dat$ses[idx])    
       } else
       {
-        del.sh=paste0("rm -rf sub-",dat$sub[idx],"/ses-",dat$ses[idx],"/sub-",dat$sub[idx],"_ses-",dat$ses[idx],"_run-",dat$run[idx],"*")    
+        del.sh=paste0("rm -rf sub-",dat$sub[idx],"/ses-",dat$ses[idx],"/sub-",dat$sub[idx],"_ses-",dat$ses[idx],"_run-",dat$run[idx],"*")
+        del.sh=gsub("run-NA","",del.sh)
       }
     } else
     {
