@@ -19,14 +19,14 @@
 
 headmotion.XCP=function(filename="FD.csv", threshold=0.25)
 {
-  filelist=list.files(path = Sys.glob("sub-*"), pattern="_motion.tsv", recursive=T)
+  filelist=list.files(path = Sys.glob("sub-*"), pattern="_motion.tsv", recursive=T, full.names=T)
   FD.all=data.frame(matrix(NA,nrow=length(filelist),ncol=2))
   colnames(FD.all)=c("fMRI_run","FD")
   
   for (file in 1:length(filelist))
   {
     FD.all$fMRI_run[file]=filelist[file]
-    FD.all$FD[file]=mean(read.table(filelist[file],header=T, sep="\t")$framewise_displacement)
+    FD.all$FD[file]=mean(read.table(filelist[file],header=T, sep="\t")$rmsd)
   }
   
   files.del=FD.all[which(FD.all$FD>threshold),1]
