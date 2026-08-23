@@ -26,7 +26,7 @@ headmotion.XCP=function(filename="FD.csv", threshold=0.25)
   for (file in 1:length(filelist))
   {
     FD.all$fMRI_run[file]=filelist[file]
-    FD.all$FD[file]=mean(read.table(filelist[file],header=T, sep="\t")$rmsd)
+    FD.all$FD[file]=mean(read.table(filelist[file],header=T, sep="\t")$rmsd, na.rm=T)
   }
   
   files.del=FD.all[which(FD.all$FD>threshold),1]
